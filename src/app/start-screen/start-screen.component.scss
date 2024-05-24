@@ -1,0 +1,32 @@
+@mixin dFlexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start_screen {
+  background-color: #404040;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  @include dFlexCenter();
+  img {
+    height: 100vh;
+  }
+}
+
+.start_label_container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 200px;
+  @include dFlexCenter();
+  img {
+    width: 40vw;
+    height: auto;
+    &:hover {
+      filter: brightness(1.25);
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.game_field {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  background-image: url("../../assets/img/board.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_stack {
+  position: relative;
+  img {
+    position: absolute;
+    right: 0;
+    width: 120px;
+  }
+}
+
+.top_card {
+  cursor: pointer;
+  transition: all 125ms ease-in-out;
+  &:hover {
+    transform: scale(1.1) translateY(-10px);
+  }
+}
+
+.pick_card {
+  animation: pick_card_animation 1s ease-in-out;
+  transform: scale(1.3) translate(140px) translateY(-180px);
+}
+
+@keyframes pick_card_animation {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.7);
+  }
+  60% {
+    transform: scale(1.7);
+  }
+  100% {
+    transform: scale(1.3) translate(140px) translateY(-180px);
+  }
+}
+// Bei 40% und 60% bleibt es bei 1.7 - das sihet dann aus, wie bei einer Pause in der es so bleibt.
