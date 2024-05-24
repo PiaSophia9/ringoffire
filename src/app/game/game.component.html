@@ -1,12 +1,14 @@
+<app-player class="player_position" [ngStyle]="{ 'top.px': 130 }"> </app-player>
+
 <div class="game_field">
   <div class="card_stack">
+    <!-- Card Stack -->
     @for( count of [0,1,2,3]; track count; let i = $index) {
     <img
       [ngStyle]="{ 'right.px': i * 10 }"
       src="./assets/img/cards/card_cover.png"
       alt=""
     />
-
     <img
       (click)="takeCard()"
       class="top_card"
@@ -14,11 +16,20 @@
       src="./assets/img/cards/card_cover.png"
       alt=""
     />
+    <!-- Stack Played Cards -->
+    @for( playedCard of game.playedCards; track playedCard; let i = $index) {
+    <img
+      class="played_card"
+      style="right: 50px"
+      src="./assets/img/cards/{{ playedCard }}"
+      alt=""
+    />}
+    <!-- Current Card with Animation -->
     @if (pickCardAnimation) {
     <img
       class="pick_card"
       style="right: 50px"
-      src="./assets/img/cards/ace_1.png"
+      src="./assets/img/cards/{{ currentCard }}"
       alt=""
     />}}
   </div>
