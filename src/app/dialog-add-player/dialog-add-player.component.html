@@ -7,5 +7,13 @@
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="name" cdkFocusInitial>OK</button>
+  <button
+    mat-button
+    [disabled]="name.length == 0"
+    [mat-dialog-close]="name"
+    cdkFocusInitial
+  >
+    OK
+  </button>
+  <!-- if name-lengty == 0 then disable button -->
 </mat-dialog-actions>

@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { GameInfoComponent } from '../game-info/game-info.component';
 
 @Component({
   selector: 'app-game',
@@ -18,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatIconModule,
     DialogAddPlayerComponent,
     MatDialogModule,
+    GameInfoComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss',
@@ -45,6 +47,12 @@ export class GameComponent {
       // this.game.stack.splice(0, 1);
       console.log('new card: ', this.currentCard);
       console.log('game: ', this.game);
+      if (this.game.currentPlayer < this.game.players.length - 1) {
+        this.game.currentPlayer++;
+      } else {
+        this.game.currentPlayer = 0;
+      }
+
       setTimeout(() => {
         this.game?.playedCards.push(this.currentCard);
         this.pickCardAnimation = false;
