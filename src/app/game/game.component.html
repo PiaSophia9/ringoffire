@@ -1,4 +1,12 @@
-<app-player class="player_position" [ngStyle]="{ 'top.px': 130 }"> </app-player>
+@for( player of game.players; track player; let i = $index) {
+<app-player
+  class="player_position"
+  [ngStyle]="{ 'top.px': 100 + i * 90 }"
+  [name]="player"
+  [playerActive]="i == game.currentPlayer"
+>
+  <!-- If i is equal to game.currentPlayer, it means that the current player in the game is the player at the current index (i) in the players array of the game object. --> </app-player
+>}
 
 <div class="game_field">
   <div class="card_stack">
@@ -34,3 +42,7 @@
     />}}
   </div>
 </div>
+
+<button mat-fab color="primary" (click)="openDialog()" class="btn_add">
+  <mat-icon>add</mat-icon>
+</button>

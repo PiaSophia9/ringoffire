@@ -1,8 +1,5 @@
-<!-- @for( playerName of game.players; track playerName; let i = $index) { -->
-
-<div class="player">
+<div class="player" [class.player_active]="playerActive">
+  <!-- if playerActive == true dann soll die Klasse player_active hinzugefügt werden -->
   <img src="./assets/img/profiles/profile_1.png" alt="" />
-  <span>Sophia</span>
-  <!-- <span>{{ playerName }}</span> -->
+  <span> {{ name }} </span>
 </div>
-<!-- } -->
